@@ -31,24 +31,11 @@ int main(void)
         if(c==31){break;}
     }
     p = start;
-    printf("Before adding a node: ");
+    printf("The linked list:");
     while(p!=null)
     {
         printf("%d ", p->data);
         p = p->link;
     }
-    strn *newnode = (strn *)malloc(sizeof(strn));
-    newnode->data = 900;
-    newnode->link = null;
-    current->link = newnode;
-    current = newnode;
-    printf("\nAfter adding a node: ");
-    p = start;
-    while(p!=null)
-    {
-        printf("%d ", p->data);
-        p = p->link;
-    }
-
 
 }
