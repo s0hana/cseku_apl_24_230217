@@ -1,70 +1,90 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-struct node
-{
+struct Node {
     int data;
-    struct node *link; // Link to the next node
+    struct Node *next;
 };
 
-typedef struct node strn; // Creates an alias 'strn' for 'struct node' to simplify variable declarations
+
+// Typedef to simplify the struct definition, allowing us to use 'Node' instead of 'struct Node'
+typedef struct Node Node;
+
+
+Node *createNode(int value);
+void appendNode(Node **start, int value);
+void displayList(Node *start);
+void prependNode(Node **start, int value);
 
 int main(void)
 {
-    strn *start, *temp, *current;
-    int count = 1;
+    Node *start = NULL;
+    int count;
 
-    // Create a linked list with 10 nodes
-    while(count <= 10)
-    {
-        strn *temp_node;
-        temp_node = (strn *)malloc(sizeof(strn)); // Allocates memory for a node of type 'strn'
-        temp_node->data = count;
-        temp_node->link = NULL; // Set the link to NULL (end of the list)
-
-        if(count == 1)
-        {
-            start = temp_node;  // Initialize start with the first node
-            current = temp_node; // Initialize current node
-        }
-        else
-        {
-            current->link = temp_node; // Link the previous node to the new node
-            current = temp_node;       // Update current to the new node
-        }
-        count++;
+    // Creates a linked list with values from 1 to 10
+    for (count = 1; count <= 10; count++) {
+        appendNode(&start, count);
     }
 
-
-
-    // Display the list before adding a new node
-    temp = start; // Assigns the pointer 'start' to 'temp'
     printf("Before adding a node: ");
-    while(temp != NULL)
-    {
-        printf("%d ", temp->data);
-        temp = temp->link;
-    }
+    displayList(start);
 
+    // Adds a new node with value 0 at the start
+    prependNode(&start, 0);
 
-
-    // Creation and addition of a new node at the start of the list
-    strn *newnode = (strn *)malloc(sizeof(strn)); // Allocates memory for a node of type 'strn'
-    newnode->data = 0; // Set the data of the new node to 0
-    newnode->link = start; // The new node's link points to the current start node
-    start = newnode; // Updates 'start' to point to the new node, making it the new head
-
-
-
-    // Display the list after adding the new node
-    temp = start; // Reassign 'temp' to start for traversal
     printf("\nAfter adding a node: ");
-    while(temp != NULL)
-    {
-        printf("%d ", temp->data);
-        temp = temp->link;
-    }
-
+    displayList(start);
 
     return 0;
+}
+
+
+// Creates a new node with the given value and returns a pointer to it
+Node *createNode(int value)
+{
+    Node *newNode = malloc(sizeof(Node));
+    if (newNode == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+    newNode->data = value;
+    newNode->next = NULL;
+    return newNode;
+}
+
+
+// Appends a new node with the given value at the end of the list
+void appendNode(Node **start, int value)
+{
+    Node *newNode = createNode(value);
+    if (*start == NULL) {
+        *start = newNode;
+    }
+    else {
+        Node *current = *start;
+        while (current->next != NULL) {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
+}
+
+
+// Prepends a new node with the given value at the beginning of the list
+void prependNode(Node **start, int value)
+{
+    Node *newNode = createNode(value);
+    newNode->next = *start;
+    *start = newNode;
+}
+
+
+// Displays all nodes in the linked list
+void displayList(Node *start)
+{
+    Node *current = start;
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->next;
+    }
 }
