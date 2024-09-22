@@ -5,7 +5,7 @@ int main()
     printf("\nEnter a number:");
     scanf("%d",&number);
 
-    int temp = number;// Storing the original number for checking later
+    int originalNumber = number;// Storing the original number for checking later
 
 
     // Separates all digits, cubes each digit, and adds them together to check if the sum equals the original number.
@@ -18,7 +18,7 @@ int main()
 
 
     // Checking if the sum equals the original number
-    if(sum==temp)
+    if(sum==originalNumber)
         printf("\nThe number is  armstrong.\n");
     else
         printf("\nThe number is  not armstrong.\n");
