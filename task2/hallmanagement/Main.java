@@ -10,11 +10,11 @@ public class Main {
         Address studentAddress = new Address("Street2", "9001", "Subdistrict2", "District2", "Division2");
 
         // Creating ContactInfo objects
-        ContactInfo hallContact = new ContactInfo("varsityBoysHall@gmail.com", "123-456-7890");
-        ContactInfo studentContact = new ContactInfo("rahim432@gmail.com", "098-765-4321");
+        ContactInfo hallContact = new ContactInfo("aparajitahall@gmail.com", "09283480293");
+        ContactInfo studentContact = new ContactInfo("rahim432@gmail.com", "4895329743290");
 
         // Creating a Student object
-        Student student = new Student("Rahim", 12345, "Computer Science", "2nd Year", studentContact, studentAddress);
+        Student student = new Student("Munia", 12345, "Computer Science and Engineering", "2nd Year", studentContact, studentAddress);
 
         // Creating a Hall object
         Hall hall = new Hall("Boys Hall", hallAddress, hallContact);
