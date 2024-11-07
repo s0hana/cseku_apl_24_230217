@@ -11,13 +11,13 @@ public class Main {
 
         // Creating ContactInfo objects
         ContactInfo hallContact = new ContactInfo("aparajitahall@gmail.com", "09283480293");
-        ContactInfo studentContact = new ContactInfo("rahim432@gmail.com", "4895329743290");
+        ContactInfo studentContact = new ContactInfo("munia432@gmail.com", "4895329743290");
 
         // Creating a Student object
         Student student = new Student("Munia", 12345, "Computer Science and Engineering", "2nd Year", studentContact, studentAddress);
 
         // Creating a Hall object
-        Hall hall = new Hall("Boys Hall", hallAddress, hallContact);
+        Hall hall = new Hall("Aparajita Hall", hallAddress, hallContact);
 
         // Creating Room objects
         Room room1 = new Room(101, 2); // Room 101 with capacity for 2
