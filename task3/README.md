@@ -92,3 +92,7 @@ The **`MVC_Main.java`** class is the entry point to the application and integrat
 
 ## Conclusion
 In **`task3`**, the **`task2`** code was refactored into the **MVC architecture**, improving modularity and maintainability. The **`Model`** is used to handle data, the **`View`** is responsible for displaying it, and the **`Controller`** manages the interactions between them. By adopting **MVC**, the separation of concerns is enhanced, allowing for independent development and modification of the user interface and logic. This structure makes the system more flexible and easier to modify in the future, ensuring better maintainability and easier debugging.
+
+Made by:
+    Sohana Rahman Tuly - 230217
+    Mahazabin Munia - 230230
